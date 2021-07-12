@@ -5,11 +5,12 @@
 #include "LEDLight.h"
 #include "Buzzer.h"
 #include "Arduino.h"
+#include "Bomb.h"
 
 class GameManager
 {
   public:
-    GameManager(Buzzer buzzer, LEDLight red, LEDLight yellow, LEDLight green, Button btnA, Button btnB, Button btnC);
+    GameManager(Bomb bomb, Button btnA, Button btnB, Button btnC);
 
     void update();
 
@@ -31,35 +32,16 @@ class GameManager
     
   private:
 
-    Buzzer _buzzer;
-    
-    LEDLight _red; 
-    LEDLight _yellow; 
-    LEDLight _green; 
+    Bomb _bomb; 
     
     Button _btnA; 
     Button _btnB; 
     Button _btnC;
 
-
-
     int _running_step;
-
-    
 
     float _game_play_time;
     float _game_play_timer;
-
-    
-    
-    float _buzz_timer_max;
-    float _buzz_timer;
-
-
-
-    float _buzz_play_time;
-    
-
 
     bool _game_started;
     bool _game_ended;
